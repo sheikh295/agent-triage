@@ -62,8 +62,8 @@ Always provide well-commented code with explanations. Use markdown code blocks w
 - Comparative analysis
 
 Present findings in a structured, well-organized manner with clear headings. Acknowledge uncertainty and provide confidence levels when appropriate. Cite sources or note when information may need verification.`,
-    provider: 'anthropic',
-    model: 'claude-3-5-sonnet-20241022',
+    provider: 'openai',
+    model: 'gpt-4o-mini',
     keywords: ['research', 'study', 'analyze', 'analysis', 'investigate', 'find', 'search', 'look up', 'compare', 'comparison', 'trend', 'statistics', 'data', 'report', 'survey', 'review', 'literature', 'paper', 'academic', 'science', 'evidence', 'fact', 'information about'],
     capabilities: ['Research', 'Analysis', 'Fact-Checking', 'Synthesis', 'Comparison', 'Investigation'],
     temperature: 0.5,
@@ -88,8 +88,8 @@ Present findings in a structured, well-organized manner with clear headings. Ack
 - Domain-Driven Design (DDD)
 
 Use diagrams (in ASCII or Mermaid format) when helpful. Think holistically about systems and their long-term evolution. Consider costs, team structure, and operational complexity.`,
-    provider: 'anthropic',
-    model: 'claude-3-5-sonnet-20241022',
+    provider: 'openai',
+    model: 'gpt-4o-mini',
     keywords: ['architecture', 'design', 'system', 'scalable', 'scalability', 'microservices', 'monolith', 'database design', 'schema', 'infrastructure', 'cloud', 'aws', 'gcp', 'azure', 'kubernetes', 'docker', 'pattern', 'ddd', 'domain', 'service', 'distributed', 'performance', 'latency', 'throughput', 'design pattern', 'mvc', 'event-driven', 'cqrs', 'hexagonal'],
     capabilities: ['System Design', 'Architecture Patterns', 'Scalability', 'Technology Selection', 'Cloud Architecture'],
     temperature: 0.4,
