@@ -21,6 +21,7 @@ export function ChatInterface() {
     isStreaming,
     streamingMessageId,
     createConversation,
+    setActiveConversation,
     addMessage,
     updateMessage,
     setStreamingMessage,
@@ -33,12 +34,23 @@ export function ChatInterface() {
   // Ref to track the current streaming message ID across callbacks
   const streamingMsgRef = useRef<string | null>(null);
 
-  // Initialize with a conversation on mount
+  // Initialize with a conversation on mount.
+  // Only create a NEW conversation when there are genuinely no conversations yet.
+  // If there are existing conversations but none is active (e.g. after a fresh page
+  // load before the persisted activeConversationId is read), activate the most recent
+  // one rather than spawning a blank duplicate.
   useEffect(() => {
-    if (!activeConversationId) {
-      createConversation();
+    const state = useChatStore.getState();
+    if (!state.activeConversationId) {
+      if (state.conversations.length > 0) {
+        // Restore the most-recently-updated conversation
+        setActiveConversation(state.conversations[0].id);
+      } else {
+        createConversation();
+      }
     }
-  }, [activeConversationId, createConversation]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Set default agent if none is active
   useEffect(() => {

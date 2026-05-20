@@ -116,11 +116,13 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Add custom headers for agent info
+    // Add custom headers for agent info.
+    // NOTE: HTTP headers are Latin-1 (0-255) only — do NOT include emoji or other
+    // multi-byte Unicode characters here. The client looks up the full agent (including
+    // emoji) by ID from the local AGENTS registry, so the emoji header is unnecessary.
     const headers = new Headers({
       'X-Agent-Id': selectedAgent.id,
       'X-Agent-Name': selectedAgent.name,
-      'X-Agent-Emoji': selectedAgent.emoji,
       'X-Agent-Color': selectedAgent.color,
       'X-Is-Handoff': isHandoff ? 'true' : 'false',
       'X-Previous-Agent-Id': previousAgentId ?? '',

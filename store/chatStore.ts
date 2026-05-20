@@ -151,6 +151,7 @@ export const useChatStore = create<ChatState>()(
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         conversations: state.conversations,
+        activeConversationId: state.activeConversationId,
         conversationMessages: state.conversationMessages,
         sidebarOpen: state.sidebarOpen,
       }),
