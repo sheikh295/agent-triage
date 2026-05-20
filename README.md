@@ -170,6 +170,10 @@ To add a new agent, add an entry to `lib/agents/registry.ts`:
 }
 ```
 
+## Data Persistence
+
+> **Warning**: Conversations are stored **in-memory** in `lib/memory/store.ts`. All conversation history is lost when the server restarts or in serverless environments with multiple instances. For production use, replace the in-memory store with a database-backed solution (e.g., PostgreSQL with Prisma, Redis, or a managed service like PlanetScale).
+
 ## License
 
 MIT
